@@ -64,6 +64,7 @@ kalau masih ertor silahkan hubungi admin.
 
 > Catatan: R-Dox akan otomatis mengecek dan menginstall modul yang diperlukan jika belum ada.
 
+---
 
 Penggunaan
 Setelah dijalankan, R-Dox akan menampilkan menu interaktif dengan opsi-opsi seperti:
@@ -87,8 +88,13 @@ Disclaimer
 
 Tool ini dibuat untuk keperluan edukasi dan riset keamanan (pentesting) dengan etika. Gunakan R-Dox dengan bijak dan sesuai dengan peraturan yang berlaku. Kami tidak bertanggung jawab atas penyalahgunaan alat ini.
 
+---
 
 contact:
+
 wa.me/+6289519450908
+
 tiktok.com/@sistem9999
+
 t.me/@REN_XPLOIT
+---
