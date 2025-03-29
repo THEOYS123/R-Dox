@@ -92,9 +92,10 @@ Tool ini dibuat untuk keperluan edukasi dan riset keamanan (pentesting) dengan e
 
 contact:
 
-wa.me/+6289519450908
+https://wa.me/+6289519450908
 
-tiktok.com/@sistem9999
+https://www.tiktok.com/@sistem9999
 
-t.me/@REN_XPLOIT
----
+https://t.me/@REN_XPLOIT
+
+
