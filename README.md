@@ -56,7 +56,7 @@ Instalasi & run
 pkg install wget git
 git clone https://github.com/THEOYS123/R-Dox
 cd R-Dox
-python3 fox.py
+python3 dox.py
 ```
 2. Update R-Dox
 ```
