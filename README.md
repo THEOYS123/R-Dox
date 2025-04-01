@@ -44,6 +44,8 @@ Modul-modul:
 googlesearch-python
 rich
 requests
+python-whois
+beautifulsoup4
 
 ---
 
@@ -51,14 +53,21 @@ Instalasi & run
 
 1. Clone repository ini:
 ```
+pkg install wget git
 git clone https://github.com/THEOYS123/R-Dox
 cd R-Dox
-python3 R-Dox.py
-
+python3 fox.py
 ```
+2. Update R-Dox
+```
+rm -rf dox.py
+wget https://raw.githubusercontent.com/THEOYS123/R-Dox/refs/heads/main/dox.py
+python dox.py
+```
+
 *cara untuk mengatasi error saat menjalankan* `python R-Dox.py`
 ```
-pip install requests rich  googlesearch-python
+pip install googlesearch-python rich requests python-whois beautifulsoup4
 ```
 kalau masih ertor silahkan hubungi admin.
 
