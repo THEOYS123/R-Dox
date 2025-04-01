@@ -1,4 +1,4 @@
-![screenshot R-Dox](/sdcard/Pictures/123.jpg)
+![screenshot R-Dox](Screenshot_20250331_215353.jpg)
 
 
 # Detail R-Dox
