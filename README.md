@@ -1,4 +1,4 @@
-![screenshot R-Dox](Screenshot_20250331_215353.jpg)
+![screenshot R-Dox](quality_restoration_20250401092405320.jpg)
 
 
 # Detail R-Dox
