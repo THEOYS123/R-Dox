@@ -29,7 +29,7 @@ _D='headers'
 _C=True
 _B='.txt'
 _A='hasil-'
-import os,subprocess,time,csv,random,platform,getpass,requests
+import os,sys,subprocess,time,csv,random,platform,getpass,requests
 from googlesearch import search
 from rich.console import Console
 from rich.panel import Panel
@@ -97,7 +97,7 @@ def generate_filename():
 			except:continue
 	D=max(A)+1 if A else 1;return os.path.join(SAVE_DIR,f"hasil-{D}.txt")
 banner_text='\n____      ____  _____  _  _ \n(  _ \\ ___(  _ \\(  _  )( \\/ )\n )   /(___))(_) ))(_)(  )  ( \n(_)\\_)    (____/(_____)(_/\\_)\n\nScript By ~ RenXploit | github.com/THEOYS123\n'
-def display_banner():A=Panel.fit(banner_text,title='[bold cyan]Security Research Tool[/bold cyan]',subtitle='[bold magenta]Untuk pengujian yang diotorisasi saja[/bold magenta]',style='blue');console.print(A)
+def display_banner():A=Panel.fit(banner_text,title='[bold cyan]R-Dox v 2.0.1 [/bold cyan]',subtitle='[bold magenta]~~~R-Dox~~~[/bold magenta]',style='blue');console.print(A)
 def loading_animation(message='Memuat',duration=2):
 	A=duration
 	with Progress(SpinnerColumn(),TextColumn('[progress.description]{task.description}'),TimeElapsedColumn(),transient=_C)as B:
@@ -107,7 +107,7 @@ def get_system_info():
 	try:A=requests.get('https://api.ipify.org',timeout=5).text
 	except:A='Tidak Diketahui'
 	return{'username':getpass.getuser(),'sistem':platform.system(),'rilis':platform.release(),'public_ip':A,'waktu':datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-def print_menu():A=Table(title=f"[bold yellow]{msg[_T]}[/bold yellow]",show_header=False,header_style='bold magenta');A.add_row('[green]1[/green]','Mulai Pencarian Google Dork');A.add_row('[green]2[/green]','Lihat Hasil Terakhir');A.add_row('[green]3[/green]','Generate Random Dorks');A.add_row('[green]4[/green]','Ekspor Hasil ke CSV');A.add_row('[green]5[/green]',msg[_U]);A.add_row('[green]6[/green]',msg[_a]);A.add_row('[green]7[/green]',msg[_Z]);A.add_row('[green]8[/green]',msg[_H]);A.add_row('[green]9[/green]',msg[_V]);A.add_row('[green]0[/green]',_b);console.print(A)
+def print_menu():A=Table(title=f"[bold yellow]{msg[_T]}[/bold yellow]",show_header=False,header_style='bold magenta');A.add_row('[green]1[/green]','Mulai Pencarian Google Dork');A.add_row('[green]2[/green]','Lihat Hasil Terakhir');A.add_row('[green]3[/green]','Create Random Dorks');A.add_row('[green]4[/green]','Ekspor Hasil ke CSV');A.add_row('[green]5[/green]',msg[_U]);A.add_row('[green]6[/green]',msg[_a]);A.add_row('[green]7[/green]',msg[_Z]);A.add_row('[green]8[/green]',msg[_H]);A.add_row('[green]9[/green]',msg[_V]);A.add_row('[green]0[/green]',_b);console.print(A)
 def perform_search():
 	try:
 		D=console.input(f"[bold red]{msg[_K]}[/bold red] ").strip();E=console.input(f"[bold red]{msg[_L]}[/bold red] ").strip()
@@ -162,39 +162,41 @@ def export_to_csv():
 		console.print(f"\n[green]{msg[_G].format(n=len(B),file=D)}[/green]\n")
 	except Exception as K:console.print(f"[red]Ekspor gagal: {K}[/red]")
 def website_info_gathering():
-	V='Tidak Tersedia';U=' -> ';O='N/A';N='content';B=console.input('\n[bold]Masukkan URL yang akan dianalisis (misalnya: contoh.com):[/bold] ').strip()
+	T='Tidak Tersedia';S=' -> ';N='content';B=console.input('\n[bold]Masukkan URL yang akan dianalisis (misalnya: contoh.com):[/bold] ').strip()
 	if not B:console.print('[red]URL tidak boleh kosong![/red]');return
 	if not B.startswith((_E,_F)):B=_E+B
 	try:
-		console.print('\n[bold cyan]Mengumpulkan informasi lanjutan...[/bold cyan]\n');W=time.time();A=requests.get(B,timeout=10);X=time.time()-W;console.print(f"[bold green]Status HTTP:[/bold green] {A.status_code}");console.print(f"[bold green]Waktu Respons:[/bold green] {X:.2f} detik");Y=A.url;console.print(f"[bold green]URL Akhir:[/bold green] {Y}")
-		if A.history:Z=U.join(A.url for A in A.history)+U+A.url;console.print(f"[bold green]Redirect Chain:[/bold green] {Z}")
-		a=A.text;from bs4 import BeautifulSoup as b;E=b(a,'html.parser');c=E.title.string.strip()if E.title else'Judul tidak ditemukan';G='';H='';I='';P=[A.get_text(strip=_C)for A in E.find_all('h1')]
+		console.print('\n[bold cyan]Mengumpulkan informasi lanjutan...[/bold cyan]\n');U=time.time();A=requests.get(B,timeout=10);V=time.time()-U;console.print(f"[bold green]Status HTTP:[/bold green] {A.status_code}");console.print(f"[bold green]Waktu Respons:[/bold green] {V:.2f} detik");W=A.url;console.print(f"[bold green]URL Akhir:[/bold green] {W}")
+		if A.history:X=S.join(A.url for A in A.history)+S+A.url;console.print(f"[bold green]Redirect Chain:[/bold green] {X}")
+		Y=A.text;from bs4 import BeautifulSoup as Z;E=Z(Y,'html.parser');a=E.title.string.strip()if E.title else'Judul tidak ditemukan';G='';H='';I='';O=[A.get_text(strip=_C)for A in E.find_all('h1')]
 		for F in E.find_all('meta'):
 			J=F.get('name','').lower()
 			if J=='description':G=F.get(N,'').strip()
 			if J=='keywords':H=F.get(N,'').strip()
 			if J=='generator':I=F.get(N,'').strip()
-		console.print(f"[bold green]Judul Halaman:[/bold green] {c}");console.print(f"[bold green]Meta Deskripsi:[/bold green] {G if G else V}");console.print(f"[bold green]Meta Keywords:[/bold green] {H if H else V}");console.print(f"[bold green]CMS/Generator:[/bold green] {I if I else'Tidak Terdeteksi'}")
-		if P:console.print(f"[bold green]Tag H1:[/bold green] {', '.join(P)}")
+		console.print(f"[bold green]Judul Halaman:[/bold green] {a}");console.print(f"[bold green]Meta Deskripsi:[/bold green] {G if G else T}");console.print(f"[bold green]Meta Keywords:[/bold green] {H if H else T}");console.print(f"[bold green]CMS/Generator:[/bold green] {I if I else'Tidak Terdeteksi'}")
+		if O:console.print(f"[bold green]Tag H1:[/bold green] {', '.join(O)}")
 		else:console.print(f"[bold green]Tag H1:[/bold green] Tidak ditemukan")
 		C=urlparse(B).netloc
-		try:d=socket.gethostbyname(C);console.print(f"[bold green]IP Terdeteksi:[/bold green] {d}")
-		except Exception as e:console.print(f"[red]DNS lookup gagal: {e}[/red]")
+		try:b=socket.gethostbyname(C);console.print(f"[bold green]IP Terdeteksi:[/bold green] {b}")
+		except Exception as c:console.print(f"[red]DNS lookup gagal: {c}[/red]")
 		loading_animation('Melakukan WHOIS lookup',duration=2)
-		try:f=whois.whois(C);console.print('\n[bold green]Informasi WHOIS:[/bold green]');console.print(json.dumps(f,indent=2,default=str))
+		try:d=whois.whois(C);console.print('\n[bold green]Informasi WHOIS:[/bold green]');console.print(json.dumps(d,indent=2,default=str))
 		except Exception as D:console.print(f"[red]WHOIS lookup gagal: {D}[/red]")
-		loading_animation('Mengambil HTTP headers',duration=2);console.print('\n[bold green]HTTP Headers:[/bold green]');g=['Content-Security-Policy','X-Frame-Options','X-XSS-Protection','Strict-Transport-Security']
-		for(Q,h)in A.headers.items():i='[*]'if Q in g else'';console.print(f"[cyan]{Q}:[/cyan] {h} {i}")
-		R=A.cookies.get_dict()
-		if R:console.print(f"[bold green]Cookies:[/bold green] {R}")
+		loading_animation('Mengambil HTTP headers',duration=2);console.print('\n[bold green]HTTP Headers:[/bold green]');e=['Content-Security-Policy','X-Frame-Options','X-XSS-Protection','Strict-Transport-Security']
+		for(P,f)in A.headers.items():g='[*]'if P in e else'';console.print(f"[cyan]{P}:[/cyan] {f} {g}")
+		if A.cookies.get_dict():console.print(f"[bold green]Cookies:[/bold green] {A.cookies.get_dict()}")
 		if B.startswith(_F):
 			try:
-				j=ssl.create_default_context()
-				with j.wrap_socket(socket.socket(),server_hostname=C)as K:K.settimeout(5.);K.connect((C,443));L=K.getpeercert();k=dict(A[0]for A in L.get('issuer',[]));l=L.get('notBefore',O);m=L.get('notAfter',O);console.print('\n[bold green]Info Sertifikat SSL:[/bold green]');console.print(f"Issuer: {k.get('organizationName',O)}");console.print(f"Valid From: {l}");console.print(f"Valid To: {m}")
+				h=ssl.create_default_context()
+				with h.wrap_socket(socket.socket(),server_hostname=C)as K:K.settimeout(5.);K.connect((C,443));i=K.getpeercert(binary_form=_C)
+				j=ssl.DER_cert_to_PEM_cert(i);L='temp_cert.pem'
+				with open(L,'w')as k:k.write(j)
+				l=ssl._ssl._test_decode_cert(L);os.remove(L);console.print('\n[bold green]Info Sertifikat SSL:[/bold green]');console.print(json.dumps(l,indent=2))
 			except Exception as D:console.print(f"[red]Gagal mengambil sertifikat SSL: {D}[/red]")
-		n={80:'HTTP',443:'HTTPS',22:'SSH',21:'FTP'};console.print('\n[bold green]Pemeriksaan Port (port umum):[/bold green]')
-		for(S,o)in n.items():M=socket.socket(socket.AF_INET,socket.SOCK_STREAM);M.settimeout(2);p=M.connect_ex((C,S));q='Terbuka'if p==0 else'Tertutup';console.print(f"Port {S} ({o}): {q}");M.close()
-		loading_animation('Mendeteksi teknologi',duration=2);T=f"https://builtwith.com/{C}";console.print(f"\n[bold green]Deteksi Teknologi:[/bold green]");console.print(f"Kunjungi [blue]{T}[/blue] untuk profil teknologi secara detail");webbrowser.open(T)
+		m={80:'HTTP',443:'HTTPS',22:'SSH',21:'FTP'};console.print('\n[bold green]Pemeriksaan Port (port umum):[/bold green]')
+		for(Q,n)in m.items():M=socket.socket(socket.AF_INET,socket.SOCK_STREAM);M.settimeout(2);o=M.connect_ex((C,Q));p='Terbuka'if o==0 else'Tertutup';console.print(f"Port {Q} ({n}): {p}");M.close()
+		loading_animation('Mendeteksi teknologi',duration=2);R=f"https://builtwith.com/{C}";console.print(f"\n[bold green]Deteksi Teknologi:[/bold green]");console.print(f"Kunjungi [blue]{R}[/blue] untuk profil teknologi secara detail");webbrowser.open(R)
 	except Exception as D:console.print(f"\n[red]Error saat analisis lanjutan: {D}[/red]\n")
 def doxing_info():
 	A=console.input(f"\n[bold red]{msg[_W]}[/bold red] ").strip()
