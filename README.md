@@ -58,6 +58,8 @@ pip install googlesearch-python rich requests python-whois beautifulsoup4
 git clone https://github.com/THEOYS123/R-Dox
 cd R-Dox
 python3 dox.py
+atau
+python dox2.pyy
 ```
 2. Update R-Dox
 ```
